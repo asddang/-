@@ -1,0 +1,6 @@
+{
+  "name": "저승 이민청 (Afterlife Immigration Office)",
+  "description": "저승 국경 관리 사무소 이민청의 공식 인포메이션 웹사이트",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
