@@ -143,7 +143,7 @@ function Page1Content() {
             <span className="font-bold text-lg font-['Noto_Serif_KR'] tracking-wider">세계관</span>
           </div>
           <div className="sm:w-2/3 p-4 flex flex-col justify-center">
-            <p className="font-bold text-[15px] text-gray-800">죽음 이후 사후세계 이민 심사 필수</p>
+            <p className="font-bold text-[15px] text-gray-800 leading-snug">모든 인간은 죽음 직후, 사후세계 입국을 위한 이민 심사를 필수로 거쳐야 한다.</p>
             <p className="text-sm text-red-600 font-semibold mt-1">(예외: 자연사는 심사 불필요)</p>
           </div>
         </div>
