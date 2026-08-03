@@ -167,13 +167,23 @@ function Page1Content() {
             <Users className="w-6 h-6 shrink-0" />
             <span className="font-bold text-lg font-['Noto_Serif_KR'] tracking-wider">부서</span>
           </div>
-          <div className="sm:w-2/3 p-4 flex flex-col justify-center">
-            <p className="font-medium text-gray-800 leading-relaxed">
-              민원상담과<br/>
-              사인조사과<br/>
-              심사배정과<br/>
-              특별관리과
-            </p>
+          <div className="sm:w-2/3 p-4 flex flex-col justify-center space-y-2.5">
+            <div className="text-[13px] text-gray-700 leading-snug">
+              <span className="font-bold text-[14px] text-gray-900 mr-1">민원상담과:</span>
+              번호표 발급, 대기 안내, 기초 상담, 망자 원성 폭주
+            </div>
+            <div className="text-[13px] text-gray-700 leading-snug">
+              <span className="font-bold text-[14px] text-gray-900 mr-1">사인조사과:</span>
+              비자연사(자살/사고/타살) 원인 조사, 현장(이승) 출장, 서류 작성
+            </div>
+            <div className="text-[13px] text-gray-700 leading-snug">
+              <span className="font-bold text-[14px] text-gray-900 mr-1">심사배정과:</span>
+              망자 등급 판정, 사후세계 배정, 비자 발급, 빽/로비 중심지
+            </div>
+            <div className="text-[13px] text-gray-700 leading-snug">
+              <span className="font-bold text-[14px] text-gray-900 mr-1">특별관리과:</span>
+              지옥행 대상자 관리, 강제 송환, 특수 사건 처리
+            </div>
           </div>
         </div>
 
