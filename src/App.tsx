@@ -31,7 +31,7 @@ export default function App() {
       {/* Navigation Arrows */}
       <div className="fixed top-6 left-6 z-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
         <button 
-          onClick={() => setPage(page === 0 ? 1 : 0)}
+          onClick={() => setPage((prev) => (prev === 0 ? 2 : prev - 1))}
           className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-sm border border-white/20 transition-all cursor-pointer"
           aria-label="Previous Page"
         >
@@ -41,7 +41,7 @@ export default function App() {
 
       <div className="fixed top-6 right-6 z-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
         <button 
-          onClick={() => setPage(page === 0 ? 1 : 0)}
+          onClick={() => setPage((prev) => (prev === 2 ? 0 : prev + 1))}
           className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-sm border border-white/20 transition-all cursor-pointer"
           aria-label="Next Page"
         >
@@ -80,49 +80,47 @@ export default function App() {
         {/* Content Wrapper */}
         <div className="p-4 md:p-6 space-y-6 relative">
           
-          {page === 0 ? (
-            <>
-              <Page1Content />
-              {/* Footer Area with Stamp (Shared on both pages) */}
-              <div className="pt-12 pb-8 relative flex flex-col sm:flex-row items-center sm:items-end justify-between px-4 sm:px-8">
+          {page === 0 && <Page1Content />}
+          {page === 1 && <Page2Content />}
+          {page === 2 && <Page3Content />}
+
+          {page === 0 && (
+            <div className="pt-12 pb-8 relative flex flex-col sm:flex-row items-center sm:items-end justify-between px-4 sm:px-8">
+              
+              {/* Stamp Container with Paperclip */}
+              <div className="relative flex-shrink-0 mb-6 sm:mb-0 sm:absolute sm:left-12 sm:bottom-14 z-20">
                 
-                {/* Stamp Container with Paperclip */}
-                <div className="relative flex-shrink-0 mb-6 sm:mb-0 sm:absolute sm:left-12 sm:bottom-14 z-20">
-                  
-                  {/* Paperclip graphic purely in CSS */}
-                  <div className="absolute -top-6 -left-4 w-8 h-16 border-[3px] border-[#999] rounded-full bg-transparent transform -rotate-[25deg] hidden sm:block shadow-sm z-30">
-                     {/* Inner clip curve */}
-                     <div className="absolute top-1 left-[2px] right-[2px] bottom-4 border-[3px] border-[#999] rounded-full border-b-0 rounded-b-none"></div>
-                  </div>
+                {/* Paperclip graphic purely in CSS */}
+                <div className="absolute -top-6 -left-4 w-8 h-16 border-[3px] border-[#999] rounded-full bg-transparent transform -rotate-[25deg] hidden sm:block shadow-sm z-30">
+                   {/* Inner clip curve */}
+                   <div className="absolute top-1 left-[2px] right-[2px] bottom-4 border-[3px] border-[#999] rounded-full border-b-0 rounded-b-none"></div>
+                </div>
 
-                  {/* Official Stamp */}
-                  <div className="border-[6px] border-red-600 text-red-600 px-5 py-4 transform -rotate-[8deg] opacity-90 mix-blend-multiply flex flex-col items-center justify-center pointer-events-none w-max min-w-[280px]">
-                    <div className="font-black text-4xl tracking-widest font-['Noto_Serif_KR'] mb-1 whitespace-nowrap">
-                      저승 이민청
-                    </div>
-                    <div className="text-xs font-bold tracking-widest uppercase border-t-2 border-red-600 pt-1 w-full text-center mt-1">
-                      Official Document
-                    </div>
+                {/* Official Stamp */}
+                <div className="border-[6px] border-red-600 text-red-600 px-5 py-4 transform -rotate-[8deg] opacity-90 mix-blend-multiply flex flex-col items-center justify-center pointer-events-none w-max min-w-[280px]">
+                  <div className="font-black text-4xl tracking-widest font-['Noto_Serif_KR'] mb-1 whitespace-nowrap">
+                    저승 이민청
+                  </div>
+                  <div className="text-xs font-bold tracking-widest uppercase border-t-2 border-red-600 pt-1 w-full text-center mt-1">
+                    Official Document
                   </div>
                 </div>
-
-                {/* Spacer to push text to the right on desktop */}
-                <div className="hidden sm:block flex-1"></div>
-
-                {/* Text Content */}
-                <div className="text-center sm:text-left font-bold text-sm md:text-[17px] text-gray-800 leading-loose font-['Noto_Serif_KR'] relative z-10 bg-[#f4f1ea] py-2 sm:pl-8 sm:pr-4">
-                  모든 망자는<br/>적절한 절차를 거쳐<br/>그에 맞는 사후세계로<br/>이동하게 됩니다.
-                </div>
-
-                {/* Faint Background Logo at bottom right */}
-                <div className="absolute right-2 bottom-0 opacity-[0.03] pointer-events-none">
-                   <Globe className="w-32 h-32" />
-                </div>
-
               </div>
-            </>
-          ) : (
-            <Page2Content />
+
+              {/* Spacer to push text to the right on desktop */}
+              <div className="hidden sm:block flex-1"></div>
+
+              {/* Text Content */}
+              <div className="text-center sm:text-left font-bold text-sm md:text-[17px] text-gray-800 leading-loose font-['Noto_Serif_KR'] relative z-10 bg-[#f4f1ea] py-2 sm:pl-8 sm:pr-4">
+                모든 망자는<br/>적절한 절차를 거쳐<br/>그에 맞는 사후세계로<br/>이동하게 됩니다.
+              </div>
+
+              {/* Faint Background Logo at bottom right */}
+              <div className="absolute right-2 bottom-0 opacity-[0.03] pointer-events-none">
+                 <Globe className="w-32 h-32" />
+              </div>
+
+            </div>
           )}
 
         </div>
@@ -483,6 +481,38 @@ function FlowItem({ icon, text, sub }: { icon: React.ReactNode, text: string, su
       </div>
       <span className="text-xs font-bold text-gray-800 whitespace-nowrap">{text}</span>
       {sub && <span className="text-[10px] font-medium text-gray-600 leading-none">{sub}</span>}
+    </div>
+  );
+}
+
+function Page3Content() {
+  return (
+    <div className="space-y-6">
+      <SectionDivider title="시작 설정" />
+      
+      <section className="border-2 border-[#2a2a2a] bg-white divide-y-2 divide-[#2a2a2a] overflow-hidden">
+        
+        <div className="p-5 sm:p-6 bg-[#faf9f6]">
+          <h3 className="text-[17px] sm:text-[19px] font-black font-['Noto_Serif_KR'] text-gray-900 mb-3 flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
+            <span className="text-red-600 whitespace-nowrap tracking-wider">시작 설정 1:</span>
+            <span>따뜻해, 방금 죽었나봐</span>
+          </h3>
+          <p className="text-[14px] sm:text-[15px] text-gray-800 leading-relaxed font-medium">
+            비자연사로 죽은 당신, 저승 가자마자 사망 원인부터 반려당했다. 축하한다. 죽어서도 민원인이다.
+          </p>
+        </div>
+
+        <div className="p-5 sm:p-6 bg-[#faf9f6]">
+          <h3 className="text-[17px] sm:text-[19px] font-black font-['Noto_Serif_KR'] text-gray-900 mb-3 flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
+            <span className="text-red-600 whitespace-nowrap tracking-wider">시작 설정 2:</span>
+            <span>퇴근은 퇴근이 퇴근하니</span>
+          </h3>
+          <p className="text-[14px] sm:text-[15px] text-gray-800 leading-relaxed font-medium">
+            저승 이민청에서 사인이나 까며 오늘도 무사히 월급만 축내려던 당신. 그런데 인턴 하나가 시스템을 날려먹었다. 인사해라. 오늘은 정시 퇴근이라는 개념과 작별할 시간이다.
+          </p>
+        </div>
+
+      </section>
     </div>
   );
 }
